@@ -1,21 +1,25 @@
-import React from 'react';
-import Tree from './tree';
-import { StaticQuery, graphql } from 'gatsby';
 import styled from '@emotion/styled';
+import { graphql, StaticQuery } from 'gatsby';
+import React from 'react';
 import { ExternalLink } from 'react-feather';
 import config from '../../../config';
+import Tree from './tree';
 
 // eslint-disable-next-line no-unused-vars
-const ListItem = styled(({ className, active, level, ...props }) => {
+const ListItem = styled(({ className, active, level, target, ...props }) => {
   return (
     <li className={className}>
-      <a href={props.to} {...props} target="_blank" rel="noopener noreferrer">
+      <a href={props.to} {...props} target={target || '_blank'} rel="noopener noreferrer">
         {props.children}
       </a>
     </li>
   );
 })`
   list-style: none;
+
+  .responsive a {
+    color: pink;
+  }
 
   a {
     color: #5c6975;
@@ -104,20 +108,33 @@ const SidebarLayout = ({ location }) => (
             }
           }
         }
+        allJavascriptFrontmatter(sort: { fields: frontmatter___order }) {
+          edges {
+            node {
+              frontmatter {
+                linkText
+                slug
+              }
+            }
+          }
+        }
       }
     `}
-    render={({ allMdx }) => {
+    render={({ allMdx, allJavascriptFrontmatter }) => {
       return (
         <Sidebar>
-          {config.sidebar.title ? (
-            <div
-              className={'sidebarTitle hiddenMobile'}
-              dangerouslySetInnerHTML={{ __html: config.sidebar.title }}
-            />
-          ) : null}
           <ul className={'sideBarUL'}>
             <Tree edges={allMdx.edges} />
             {config.sidebar.links && config.sidebar.links.length > 0 && <Divider />}
+            {allJavascriptFrontmatter.edges.map(({ node: { frontmatter } }) => {
+              if (frontmatter.slug && frontmatter.linkText) {
+                return (
+                  <ListItem key={frontmatter.slug} to={`/${frontmatter.slug}/`} target="_self">
+                    {frontmatter.linkText}
+                  </ListItem>
+                );
+              }
+            })}
             {config.sidebar.links.map((link, key) => {
               if (link.link !== '' && link.text !== '') {
                 return (

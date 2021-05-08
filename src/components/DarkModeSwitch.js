@@ -1,13 +1,12 @@
-import React from 'react';
 import styled from '@emotion/styled';
-
-import NightImage from './images/night.png';
+import React from 'react';
 import DayImage from './images/day.png';
+import NightImage from './images/night.png';
 
 const StyledSwitch = styled('div')`
   display: flex;
   justify-content: flex-end;
-  width: 100%;
+  width: auto;
   padding: 0 20px 0 25px;
 
   /* The switch - the box around the slider */

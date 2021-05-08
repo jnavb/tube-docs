@@ -7,48 +7,84 @@ const startCase = require('lodash.startcase');
 const config = require('./config');
 
 exports.createPages = ({ graphql, actions }) => {
-  const { createPage } = actions;
+  return Promise.all([
+    createDocumentationPages({ graphql, actions }),
+    createSnippetPages({ graphql, actions }),
+  ]);
+};
 
-  return new Promise((resolve, reject) => {
-    resolve(
-      graphql(
-        `
-          {
-            allMdx {
-              edges {
-                node {
-                  fields {
-                    id
-                  }
-                  tableOfContents
-                  fields {
-                    slug
-                  }
-                }
+const createDocumentationPages = ({ graphql, actions }) =>
+  graphql(
+    `
+      {
+        allMdx {
+          edges {
+            node {
+              fields {
+                id
+              }
+              tableOfContents
+              fields {
+                slug
               }
             }
           }
-        `
-      ).then(result => {
-        if (result.errors) {
-          console.log(result.errors); // eslint-disable-line no-console
-          reject(result.errors);
         }
+      }
+    `
+  ).then(result => {
+    if (result.errors) {
+      console.log(result.errors); // eslint-disable-line no-console
+      throw result.errors;
+    }
+    const { createPage } = actions;
 
-        // Create blog posts pages.
-        result.data.allMdx.edges.forEach(({ node }) => {
-          createPage({
-            path: node.fields.slug ? node.fields.slug : '/',
-            component: path.resolve('./src/templates/docs.js'),
-            context: {
-              id: node.fields.id,
-            },
-          });
-        });
-      })
-    );
+    result.data.allMdx.edges.forEach(({ node }) => {
+      createPage({
+        path: node.fields.slug ? node.fields.slug : '/',
+        component: path.resolve('./src/templates/docs.js'),
+        context: {
+          id: node.fields.id,
+        },
+      });
+    });
   });
-};
+
+const createSnippetPages = ({ graphql, actions }) =>
+  graphql(
+    `
+      {
+        allJavascriptFrontmatter {
+          edges {
+            node {
+              id
+              frontmatter {
+                title
+                slug
+                jsCode
+                tubeCode
+              }
+            }
+          }
+        }
+      }
+    `
+  ).then(result => {
+    if (result.errors) {
+      console.log(result.errors); // eslint-disable-line no-console
+      throw result.errors;
+    }
+    const { createPage } = actions;
+
+    result.data.allJavascriptFrontmatter.edges.forEach(({ node }) => {
+      const { frontmatter } = node;
+      createPage({
+        path: frontmatter.slug || '/',
+        component: path.resolve('./src/components/IDE/IDE.js'),
+        context: { ...frontmatter },
+      });
+    });
+  });
 
 exports.onCreateWebpackConfig = ({ actions }) => {
   actions.setWebpackConfig({

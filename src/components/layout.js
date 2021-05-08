@@ -1,12 +1,12 @@
-import React from 'react';
 import styled from '@emotion/styled';
 import { MDXProvider } from '@mdx-js/react';
-
-import ThemeProvider from './theme/themeProvider';
-import mdxComponents from './mdxComponents';
-import Sidebar from './sidebar';
-import RightSidebar from './rightSidebar';
+import React from 'react';
 import config from '../../config.js';
+import mdxComponents from './mdxComponents';
+import RightSidebar from './rightSidebar';
+import Sidebar from './sidebar';
+import ThemeProvider from './theme/themeProvider';
+
 
 const Wrapper = styled('div')`
   display: flex;
