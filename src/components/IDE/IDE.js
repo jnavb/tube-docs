@@ -20,6 +20,7 @@ const IDEWrapper = styled.div`
   height: 100vh;
   align-content: flex-start;
   padding: 8px;
+  background: ${props => (props.isDarkThemeActive ? '#001932' : undefined)};
 
   .ace-editor-bottom-margin {
     margin-top: 32px !important;
@@ -27,7 +28,7 @@ const IDEWrapper = styled.div`
 `;
 
 const Result = styled.div`
-  wheight: calc(22% - 68px);
+  height: calc(22% - 68px);
   width: 100%;
   flex-grow: 1;
 
@@ -104,7 +105,7 @@ const Tab = styled.button`
   color: white;
   font-size: 18px;
   cursor: pointer;
-  border-top: 6px solid white;
+  border-top: 6px solid ${props => (props.isDarkThemeActive ? '#001932' : 'white')};
   font-weight: 600;
   color: #abb2bf;
 
@@ -159,10 +160,14 @@ export default class IDE extends Component {
   constructor(props) {
     super(props);
 
+    const {
+      pageContext: { jsCode, tubeCode },
+    } = this.props;
+
     this.state = {
       activeTab: 'TUBE',
-      jsCode: '',
-      tubeCode: '',
+      jsCode: jsCode || '',
+      tubeCode: tubeCode || '',
       result: '',
       runButtonActive: false,
     };
@@ -180,6 +185,16 @@ export default class IDE extends Component {
       appendResult(detail);
     });
   }
+
+  componentDidMount() {
+    this.retrieveActiveTheme();
+  }
+
+  retrieveActiveTheme = () => {
+    const isDarkThemeActive = JSON.parse(window.localStorage.getItem('isDarkThemeActive'));
+
+    this.setState({ isDarkThemeActive });
+  };
 
   onCmdEnter = () => {
     this.runButton.current.click();
@@ -241,13 +256,13 @@ export default class IDE extends Component {
   };
 
   render() {
-    const { activeTab } = this.state;
+    const { activeTab, isDarkThemeActive, jsCode, tubeCode } = this.state;
     const {
       pageContext: { jsCode: defaultJSCode, tubeCode: defaultTubeCode, title },
     } = this.props;
 
     return (
-      <IDEWrapper>
+      <IDEWrapper isDarkThemeActive={isDarkThemeActive}>
         <Helmet>
           <title>{title}</title>
           <meta name="title" content="Editor" />
@@ -261,18 +276,21 @@ export default class IDE extends Component {
         <Global styles={baseStyles} />
         <Tabs className="hide-desktop">
           <Tab
+            isDarkThemeActive={isDarkThemeActive}
             className={activeTab === 'JS' ? 'btn--active' : ''}
             onClick={() => this.setTab('JS')}
           >
             JS
           </Tab>
           <Tab
+            isDarkThemeActive={isDarkThemeActive}
             className={activeTab === 'TUBE' ? 'btn--active' : ''}
             onClick={() => this.setTab('TUBE')}
           >
             Tube
           </Tab>
           <Tab
+            isDarkThemeActive={isDarkThemeActive}
             className={`hide-desktop-tablet ${activeTab === 'RESULT' ? 'btn--active' : ''}`}
             onClick={() => this.setTab('RESULT')}
           >
@@ -325,55 +343,3 @@ Tube 🚀 `}
     );
   }
 }
-
-// export const pageQuery = graphql`
-//   query($id: String!) {
-//     site {
-//       siteMetadata {
-//         title
-//         docsLocation
-//       }
-//     }
-//     javascriptFrontmatter(id: { eq: $id }) {
-//       frontmatter {
-//         slug
-//         tubeCode
-//         jsCode
-//       }
-//     }
-//   }
-// `;
-
-// class Editorr extends Component {
-//   render() {
-//     return (
-//       <Layout location="editor" children={[]}>
-//         <Helmet>
-//           <title>Editor</title>
-//           <meta name="title" content="Editor" />
-//           <meta name="description" content="Editor to code TUBE" />
-//           <meta property="twitter:title" content="Editor" />
-//           <meta property="twitter:description" content="Editor to code TUBE" />
-//         </Helmet>
-//         <div className={'titleWrapperd'}>
-//           <StyledHeading>Playground</StyledHeading>
-//         </div>
-//         <StyledMainWrapper>
-//           <Editor></Editor>
-//         </StyledMainWrapper>
-//         {/*
-//         <div className={'titleWrapper'}>
-//           <StyledHeading>{"mdx.fields.title"}</StyledHeading>
-//           <Edit className={'mobileView'}>
-//               <Link className={'gitBtn'} to={`${docsLocation}/${mdx.parent.relativePath}`}>
-//                 <img src={gitHub} alt={'Github logo'} /> Edit on GitHub
-//               </Link>
-//           </Edit>
-//         </div>
-//         <StyledMainWrapper>
-//           <MDXRenderer>{"mdx.body"}</MDXRenderer>
-//         </StyledMainWrapper> */}
-//       </Layout>
-//     );
-//   }
-// }

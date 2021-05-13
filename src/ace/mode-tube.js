@@ -44,11 +44,15 @@ const defineTubeModeHighlightRules = () =>
             },
             {
               token: 'variable.parameter.prefixes',
-              regex: /(with|for|between|by|at|to|until|and|below|under|on|since|ago|past|into|from|about|through|across|after)(?=\s|$)/,
+              regex: /(than|with|without|for|between|by|at|to|until|and|below|under|on|since|ago|past|into|from|about|through|across|after)(?=\s|$)/,
+            },
+            {
+              token: 'keyword.alias',
+              regex: /\u2B82/,
             },
             {
               token: 'keyword',
-              regex: /:|< | >|isnt|arent|aint|negate|U |default|none|! |\.\.\./,
+              regex: /:|< | >|isnt|arent|aint|negate|U |default|none|! |\.\.\.|ary|flip/,
             },
             {
               token: 'entity.name.function',

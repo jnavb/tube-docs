@@ -57,7 +57,7 @@
     "styled-components": "^4.4.1",
     "styled-icons": "^9.0.1",
     "styled-media-query": "^2.1.2",
-    "tube-lang": "0.0.9"
+    "tube-lang": "^0.4.0"
   },
   "license": "MIT",
   "main": "n/a",

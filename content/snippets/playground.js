@@ -3,8 +3,6 @@ export const frontmatter = {
   title: 'Tube Playground',
   slug: 'playground',
   linkText: 'Playground',
-  jsCode: `
-
-`,
+  jsCode: ``,
   tubeCode: ``,
 };
