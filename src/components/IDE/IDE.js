@@ -41,6 +41,7 @@ const Result = styled.div`
   `}
 
   textarea {
+    font-size: 16px;
     width: 100%;
     height: 100%;
     background-color: #282c34;
