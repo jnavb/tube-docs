@@ -214,7 +214,7 @@ export default class IDE extends Component {
     const { tubeCode, jsCode } = this.state;
     try {
       const compiledTubeCode = this.compileTube(tubeCode);
-      console.log('-- JS Code --\n\n', jsCode, '\n\n-- Tube compiled Code --\n', compiledTubeCode);
+      console.log('/* JS Code */\n\n', jsCode, '\n\n/* Tube compiled Code */\n', compiledTubeCode);
       const transformedCode = transformCodeForIDE(jsCode, compiledTubeCode);
       let result = this.runJS(transformedCode);
 
@@ -257,7 +257,7 @@ export default class IDE extends Component {
   };
 
   render() {
-    const { activeTab, isDarkThemeActive, jsCode, tubeCode } = this.state;
+    const { activeTab, isDarkThemeActive } = this.state;
     const {
       pageContext: { jsCode: defaultJSCode, tubeCode: defaultTubeCode, title },
     } = this.props;
@@ -270,7 +270,7 @@ export default class IDE extends Component {
           <meta name="description" content="Editor to code TUBE" />
           <meta property="twitter:title" content="Editor" />
           <meta property="twitter:description" content="Editor to code TUBE" />
-          <script src="https://cdnjs.cloudflare.com/ajax/libs/rxjs/6.1.0/rxjs.umd.js" />
+          <script src="https://cdnjs.cloudflare.com/ajax/libs/rxjs/6.6.7/rxjs.umd.js" />
           <script src="https://cdn.jsdelivr.net/g/lodash@4(lodash.min.js+lodash.fp.min.js)" />
           <script src="https://cdnjs.cloudflare.com/ajax/libs/date-fns/1.30.1/date_fns.min.js" />
         </Helmet>

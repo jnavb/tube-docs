@@ -39,7 +39,7 @@ const bookings = () => ({
   },
 })
 
-const wrap = (key, obj) => ({ [key]: obj })
+const wrapObject = (key, obj) => ({ [key]: obj })
 
 const addExtras = (...extras) => (booking) => ({
   ...booking,
@@ -68,12 +68,12 @@ const addExtras = (...extras) => (booking) => ({
 -> updateJohnBooking
     get ... johnId
     toPremium
-    wrap with johnId
+    wrapObject with johnId
 
 -> updateMayBooking
     get ... mayId
     addExtras ... 'roomService'
-    wrap with mayId
+    wrapObject with mayId
 
 
 bookings

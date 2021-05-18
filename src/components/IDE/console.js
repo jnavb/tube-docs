@@ -10,10 +10,23 @@ export const consoleIDEFactory = () => ({
 
 const consoleFactory = (eventName, preffix) => (...args) => {
   const proccessedMsg = args.reduce(
-    (msg, v) => msg + (typeof v === 'object' ? JSON.stringify(v) : v),
+    (msg, v) => msg + (typeof v === 'object' ? JSON.stringify(v, getCircularReplacer()) : v),
     ''
   );
   const detail = preffix + proccessedMsg;
   const customEvent = new CustomEvent(eventName, { detail });
   document.dispatchEvent(customEvent);
+};
+
+const getCircularReplacer = () => {
+  const seen = new WeakSet();
+  return (key, value) => {
+    if (typeof value === 'object' && value !== null) {
+      if (seen.has(value)) {
+        return;
+      }
+      seen.add(value);
+    }
+    return value;
+  };
 };

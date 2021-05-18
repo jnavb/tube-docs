@@ -44,7 +44,7 @@ const defineTubeModeHighlightRules = () =>
             },
             {
               token: 'variable.parameter.prefixes',
-              regex: /(than|with|without|for|between|by|at|to|until|and|or|below|under|on|since|ago|past|into|from|about|through|across|after)(?=\s|$)/,
+              regex: /(each|than|with|without|for|between|by|at|to|until|and|or|below|under|on|since|ago|past|into|from|about|through|across|after)(?=\s|$)/,
             },
             {
               token: 'keyword.alias',
@@ -52,11 +52,11 @@ const defineTubeModeHighlightRules = () =>
             },
             {
               token: 'keyword',
-              regex: /:|< | >|isnt|arent|aint|negate|U |default|none|! |\.\.\.|ary|flip/,
+              regex: /:|< | >|isnt|arent|aint|negate|U |default|none|defer |aggregate |wrap |! |\.\.\.|ary|flip/,
             },
             {
               token: 'entity.name.function',
-              regex: /(?<=-> )[a-zA-Z0-9.]*/,
+              regex: /(?<=-> )[a-zA-Z0-9.\$]*/,
             },
             {
               token: 'string',
