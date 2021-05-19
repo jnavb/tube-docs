@@ -30,9 +30,9 @@ Tube aims to be a declarative, verbose language based upon pipes. The key princi
 
 # Limitations
 
-There are [limitations](https://en.wikipedia.org/wiki/Creative_limitation) for nested expressions in the majority of features, at this moment only if/else clauses support infinite nested expressions.
+There are limitations for nested expressions in the majority of features, at this moment only if/else clauses support infinite nested expressions.
 
-This limitations are by design, to restrict some patterns and mantain the main goal of **readability**.
+This [limitations](https://en.wikipedia.org/wiki/Creative_limitation) are by design, to restrict some patterns and mantain the main goal of **readability**.
 
 # Project status
 
