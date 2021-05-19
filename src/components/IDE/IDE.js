@@ -74,7 +74,8 @@ const EditorsWrapper = styled.div`
     height: calc(100% - 162px);
   `}
 
-  & > div {
+  & > div,
+  .ace_editor {
     height: 100% !important;
   }
 `;

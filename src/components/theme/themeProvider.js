@@ -1,14 +1,13 @@
-import * as React from 'react';
-import { ThemeProvider as EmotionThemeProvider } from 'emotion-theming';
 import { Global } from '@emotion/core';
-
-import { lightTheme, darkTheme } from './index';
+import { ThemeProvider as EmotionThemeProvider } from 'emotion-theming';
+import * as React from 'react';
 import Header from '../Header';
 import { baseStyles } from '../styles/GlobalStyles';
+import { darkTheme, lightTheme } from './index';
 
 class ThemeProvider extends React.Component {
   state = {
-    isDarkThemeActive: false,
+    isDarkThemeActive: true,
   };
 
   componentDidMount() {
@@ -16,7 +15,8 @@ class ThemeProvider extends React.Component {
   }
 
   retrieveActiveTheme = () => {
-    const isDarkThemeActive = JSON.parse(window.localStorage.getItem('isDarkThemeActive'));
+    const storageTheme = window.localStorage.getItem('isDarkThemeActive');
+    const isDarkThemeActive = storageTheme === null || storageTheme === 'true';
 
     this.setState({ isDarkThemeActive });
   };

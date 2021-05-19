@@ -7,13 +7,11 @@ import { defineOneDarkTheme } from '../../ace/theme-one-dark';
 const borderRadius = '22px';
 
 const EditorWrapper = styled.div`
-  height: inherit !important;
   flex-grow: 1;
   position: relative;
 
   .ace_editor {
     width: auto !important;
-    height: inherit !important;
     border-bottom-left-radius: ${borderRadius};
     border-bottom-right-radius: ${borderRadius};
   }
@@ -77,8 +75,8 @@ export class Editor extends React.Component {
         <span className="shortcut-label">{shortcutLabel}</span>
         <BlockBeforeEditor></BlockBeforeEditor>
         <AceEditor
-          {...props}
           {...baseEditorProps}
+          {...props}
           onLoad={editor => {
             this.setState({ editor });
             editor.commands.addCommand({

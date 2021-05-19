@@ -1,13 +1,47 @@
-import React from 'react';
 import styled from '@emotion/styled';
-
-import CodeBlock from './codeBlock';
+import React from 'react';
+import Editor from '../IDE/editor';
 import AnchorTag from './anchor';
 
-const StyledPre = styled('pre')`
-  padding: 16px;
-  background: ${props => props.theme.colors.preFormattedText};
+const ReadOnlyWrapper = styled('div')`
+  border: 2px solid #686868;
+  border-radius: 24px;
+
+  #ace-editor {
+    pointer-events: none;
+  }
+
+  .ace_hidden-cursors {
+    opacity: 0;
+  }
 `;
+
+const JSCode = ({ children }) => {
+  return <ReadOnlyEditor mode="javascript">{children}</ReadOnlyEditor>;
+};
+
+const TubeCode = ({ children }) => {
+  return <ReadOnlyEditor mode="tube">{children}</ReadOnlyEditor>;
+};
+
+const ReadOnlyEditor = ({ children, ...props }) => (
+  <ReadOnlyWrapper>
+    <Editor
+      {...props}
+      defaultValue={children}
+      readOnly="true"
+      maxLines={Infinity}
+      setOptions={{
+        enableBasicAutocompletion: false,
+        enableLiveAutocompletion: false,
+        enableSnippets: false,
+        showLineNumbers: true,
+        tabSize: 4,
+        highlightActiveLine: false,
+      }}
+    ></Editor>
+  </ReadOnlyWrapper>
+);
 
 export default {
   h1: props => (
@@ -29,16 +63,7 @@ export default {
     <h6 className="heading6" id={props.children.replace(/\s+/g, '').toLowerCase()} {...props} />
   ),
   p: props => <p className="paragraph" {...props} />,
-  pre: props => (
-    <StyledPre>
-      <pre {...props} />
-    </StyledPre>
-  ),
-  code: CodeBlock,
   a: AnchorTag,
-  // TODO add `img`
-  // TODO add `blockquote`
-  // TODO add `ul`
-  // TODO add `li`
-  // TODO add `table`
+  JSCode,
+  TubeCode,
 };

@@ -33,21 +33,20 @@ const config = {
     links: [{ text: 'Compiler', link: 'https://github.com/jnavb/TUBE' }],
     frontline: false,
     ignoreIndex: false,
-    title:
-      "<a href='https://hasura.io/learn/'>graphql </a><div class='greenCircle'></div><a href='https://hasura.io/learn/graphql/react/introduction/'>react</a>",
+    title: '',
   },
   siteMetadata: {
     title: 'Tube Documentation | TUBE language',
     description: 'Documentation for tube language',
     ogImage: null,
     docsLocation: 'https://github.com/jnavb/tube-docs/content',
-    favicon: 'https://graphql-engine-cdn.hasura.io/img/hasura_icon_black.svg',
+    favicon: 'components/images/favicon.png',
   },
   pwa: {
-    enabled: true,
+    enabled: false,
     manifest: {
-      name: 'Tube Documentation',
-      short_name: 'TubeDocumentation',
+      name: 'Tube Docs',
+      short_name: 'Tube Docs',
       start_url: '/',
       background_color: '#6b37bf',
       theme_color: '#6b37bf',
