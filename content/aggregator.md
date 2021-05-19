@@ -4,6 +4,8 @@ metaTitle: 'Tube | Aggregator Syntax'
 metaDescription: 'Syntax of aggregator expressions for tube language'
 ---
 
+# Introduction
+
 Using the keyword `aggregate` you can combine several pipes into one array to pass them into the next function
 
 <Warning>This is an experimental feature</Warning>

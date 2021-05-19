@@ -4,6 +4,8 @@ metaTitle: 'Tube | Switch Expressions Syntax'
 metaDescription: 'Syntax of switch expressions for tube language'
 ---
 
+# Introduction
+
 Switch clauses are made of a tuples of function predicates and functions.
 
 To use them add an indentation level and the function predicate wrapped with the keyword `:` and followed by the function.

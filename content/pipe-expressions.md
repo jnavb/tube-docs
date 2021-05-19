@@ -3,6 +3,7 @@ title: 'Pipe Expressions'
 metaTitle: 'Tube | Pipe Expressions Syntax'
 metaDescription: 'Syntax of pipe expressions for tube language'
 ---
+# Introduction
 
 For reusability purposes you can define pipe expressions to use at IIPEs later on.
 

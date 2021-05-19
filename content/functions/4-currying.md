@@ -4,6 +4,8 @@ metaTitle: 'Tube | Currying Syntax'
 metaDescription: 'Tube language currying syntax for functions'
 ---
 
+# Introduction
+
 All functions that are partially called are autocurried by the compiler.
 
 You can disable this functionality to work with third party libraries already curried or variadic functions.

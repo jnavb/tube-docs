@@ -4,6 +4,8 @@ metaTitle: 'Tube | Union Syntax'
 metaDescription: 'Syntax of unions for tube language'
 ---
 
+# Introduction
+
 Sometimes you may want to proccess several properties with different functions and merge them. You can accomplish this with the union keyword `U`.
 
 The outputs of the functions preceeded by the union keyword are merged into one by different means:
@@ -19,7 +21,7 @@ The outputs of the functions preceeded by the union keyword are merged into one 
 <Warning>This is an experimental feature</Warning>
 
 
-# Example 1
+# Example with arrays
 
 <TubeCode>{`state\n    U getArr1\n    U getArr2\n`}</TubeCode>
 
@@ -30,7 +32,7 @@ const getArr2 = ({ arr2 }) => arr2
 
 > [1, 2, 3, 4, 5, 6]
 
-# Example 2
+# Example with objects
 
 <TubeCode>{`state\n    U getObj1\n    U getObj2\n`}</TubeCode>
 

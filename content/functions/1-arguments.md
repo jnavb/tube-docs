@@ -4,10 +4,11 @@ metaTitle: 'Tube | Arguments Syntax'
 metaDescription: 'Tube language argument syntax for functions'
 ---
 
+# Introduction
+
 If a function has more than one argument you can partially call it.
 
 The arguments supported are three: string literals, numbers and variables. To use an argument, type the argument after the function name with a space.
-
 
 ### Currying
 

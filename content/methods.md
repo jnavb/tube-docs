@@ -4,6 +4,8 @@ metaTitle: 'Tube | Methods Syntax'
 metaDescription: 'Syntax of methods for tube language'
 ---
 
+# Introduction
+
 Methods are the way we can call the functions of an object. To use a method type the function name preceded by the keyword `::`
 
 # Example

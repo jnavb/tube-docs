@@ -4,6 +4,8 @@ metaTitle: 'Tube | Negation Syntax'
 metaDescription: 'Tube language negation syntax for functions'
 ---
 
+# Introduction
+
 You can negate a function output prepending one of the negation keywords before the
 function name. Negation often comes in handy with [if/else clauses](https://tube-lang.netlify.app/if-else).
 

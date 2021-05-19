@@ -5,7 +5,6 @@ metaDescription: 'Hello world example'
 ---
 
 
-
 <TubeCode>{`greet to 'World'
 `}</TubeCode>
 

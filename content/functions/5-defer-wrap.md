@@ -11,7 +11,7 @@ its call until the pipe gets invoked. This often is useful on the first function
 
 To defer a function use the keyword `defer` before the function name
 
-# Example
+## Example
 
 <TubeCode>{`-> getMovies\n    defer fetch with 'http://example.com/movies.json'\n\ngetMovies\n`}</TubeCode>
 
@@ -23,7 +23,7 @@ Wrapped functions are similar to defer functions but input arguments get passed 
 
 To wrap a function use the keyword `wrap` before the function name
 
-# Example
+## Example
 
 <TubeCode>{`-> invoke\n    wrap fetch\n\ninvoke with 'http://example.com/movies.json'\n`}</TubeCode>
 
