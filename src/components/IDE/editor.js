@@ -73,7 +73,7 @@ export class Editor extends React.Component {
     return (
       <EditorWrapper className={className}>
         <span className="shortcut-label">{shortcutLabel}</span>
-        <BlockBeforeEditor></BlockBeforeEditor>
+        <BlockBeforeEditor id="custom-ace-block"></BlockBeforeEditor>
         <AceEditor
           {...baseEditorProps}
           {...props}

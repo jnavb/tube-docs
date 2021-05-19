@@ -6,9 +6,20 @@ import AnchorTag from './anchor';
 const ReadOnlyWrapper = styled('div')`
   border: 2px solid #686868;
   border-radius: 24px;
+  margin-bottom: 32px;
+  margin-top: 32px;
+  min-width: min(90vw, 700px);
+
+  .ace_mobile-menu {
+    display: none !important;
+  }
 
   #ace-editor {
-    pointer-events: none;
+    border-radius: 22px;
+  }
+
+  #custom-ace-block {
+    display: none;
   }
 
   .ace_hidden-cursors {
@@ -43,6 +54,32 @@ const ReadOnlyEditor = ({ children, ...props }) => (
   </ReadOnlyWrapper>
 );
 
+const TextBoxWrapper = styled('span')`
+  border: 2px solid #686868;
+  border-radius: 8px;
+  display: block;
+  padding: 16px;
+  margin-bottom: 32px;
+  margin-top: 32px;
+  position: relative;
+
+  .label {
+    font-weight: 500;
+    margin-bottom: 12px;
+  }
+`;
+
+const TextBox = ({ children, label }) => (
+  <TextBoxWrapper>
+    <div className="label">{label}</div>
+    {children}
+  </TextBoxWrapper>
+);
+
+const Note = ({ children }) => <TextBox label="Note">{children}</TextBox>;
+const Warning = ({ children }) => <TextBox label="Warning">{children}</TextBox>;
+const Limitation = ({ children }) => <TextBox label="Limitation">{children}</TextBox>;
+
 export default {
   h1: props => (
     <h1 className="heading1" id={props.children.replace(/\s+/g, '').toLowerCase()} {...props} />
@@ -66,4 +103,7 @@ export default {
   a: AnchorTag,
   JSCode,
   TubeCode,
+  Note,
+  Warning,
+  Limitation,
 };

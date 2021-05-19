@@ -4,6 +4,7 @@ import config from '../config';
 
 export default class HTML extends React.Component {
   render() {
+    const favicon = require('./components/images/favicon.png');
     return (
       <html {...this.props.htmlAttributes} lang="en">
         <head>
@@ -18,12 +19,12 @@ export default class HTML extends React.Component {
             <meta property="twitter:image" content={config.siteMetadata.ogImage} />
           ) : null}
           {config.siteMetadata.favicon ? (
-            <link rel="shortcut icon" type="image/svg" href="src/components/images/favicon.png" />
+            <link rel="shortcut icon" type="image/svg" src={favicon} />
           ) : null}
           <noscript key="noscript"></noscript>
           {this.props.headComponents}
         </head>
-        <body {...this.props.bodyAttributes}>
+        <body {...this.props.bodyAttributes} style={{ background: '#001933' }}>
           {this.props.preBodyComponents}
           <div key={`body`} id="___gatsby" dangerouslySetInnerHTML={{ __html: this.props.body }} />
           {this.props.postBodyComponents}

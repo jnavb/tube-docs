@@ -24,11 +24,21 @@ const config = {
   },
   sidebar: {
     forcedNavOrder: [
-      '/introduction', // add trailing slash if enabled above
-      '/codeblock',
+      '/', // add trailing slash if enabled above
+      '/hello-world',
+      '/format',
+      '/pipe-invocations',
+      '/pipe-expressions',
+      '/functions',
+      '/methods',
+      '/side-effects',
+      '/if-else',
+      '/switch',
+      '/union',
+      '/aggregator',
     ],
     collapsedNav: [
-      '/codeblock', // add trailing slash if enabled above
+      // '/codeblock',
     ],
     links: [{ text: 'Compiler', link: 'https://github.com/jnavb/TUBE' }],
     frontline: false,
@@ -43,7 +53,7 @@ const config = {
     favicon: 'components/images/favicon.png',
   },
   pwa: {
-    enabled: false,
+    enabled: true,
     manifest: {
       name: 'Tube Docs',
       short_name: 'Tube Docs',
@@ -52,13 +62,7 @@ const config = {
       theme_color: '#6b37bf',
       display: 'standalone',
       crossOrigin: 'use-credentials',
-      icons: [
-        {
-          src: 'src/components/images/pwa-512.png',
-          sizes: `512x512`,
-          type: `image/png`,
-        },
-      ],
+      icon: 'src/components/images/pwa-512.png',
     },
   },
 };
