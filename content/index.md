@@ -1,7 +1,7 @@
 ---
 title: 'Overview'
-metaTitle: 'Tube | Overview'
-metaDescription: 'Introduction of tube language, motivation, idea and installation'
+metaTitle: 'Tube Language | Home'
+metaDescription: 'Learn and code tube!'
 ---
 
 <p align="center">
@@ -10,14 +10,14 @@ metaDescription: 'Introduction of tube language, motivation, idea and installati
 
 Tube is a declarative, completely unneeded, functionalish language that compiles into Javascript.
 
+<Note>
+ Tube is a subset of Javascript, you still need some JS code in order to work.
+</Note>
+
 # Installation
 
 <JSCode>{`$ npm i tube-lang
 `}</JSCode>
-
-<Note>
- Tube is a subset of Javascript, you still need some JS code in order to work.
-</Note>
 
 # Motivation
 
