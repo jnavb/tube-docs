@@ -49,7 +49,7 @@ const config = {
     title: 'Tube Documentation | TUBE language',
     description: 'Documentation for tube language',
     ogImage: null,
-    docsLocation: 'https://github.com/jnavb/tube-docs/content',
+    docsLocation: 'https://github.com/jnavb/tube-docs/tree/master/content',
     favicon: 'components/images/favicon.png',
   },
   pwa: {
