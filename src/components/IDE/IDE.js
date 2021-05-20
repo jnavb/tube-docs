@@ -107,7 +107,7 @@ const Tab = styled.button`
   color: white;
   font-size: 18px;
   cursor: pointer;
-  border-top: 6px solid ${props => (props.isDarkThemeActive ? '#132436' : 'white')};
+  border-top: 6px solid #132436;
   font-weight: 600;
   color: #abb2bf;
 
