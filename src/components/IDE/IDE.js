@@ -22,8 +22,16 @@ const IDEWrapper = styled.div`
   padding: 8px;
   background: ${props => (props.isDarkThemeActive ? '#001932' : undefined)};
 
+  .ace_mobile-menu {
+    display: none !important;
+  }
+
   .ace-editor-bottom-margin {
     margin-top: 32px !important;
+
+    ${media.lessThan('small')`
+    margin-top: 42px !important;
+  `}
   }
 `;
 
@@ -107,7 +115,7 @@ const Tab = styled.button`
   color: white;
   font-size: 18px;
   cursor: pointer;
-  border-top: 6px solid #132436;
+  border-top: 6px solid #001933;
   font-weight: 600;
   color: #abb2bf;
 
