@@ -6,11 +6,11 @@ metaDescription: 'Syntax of pipe invocations for tube language'
 
 # IIPE Immediately invoked pipe expression
 
-IIPEs are the main feature of tube language. This are made of another expressions that receive as input the output of the previous one.
+IIPEs are the main feature of tube language. These are made of other expressions that receive as input the output of the previous one.
 
 # Pipe composition
 
-This are the allowed expressions inside a pipe:
+These are the allowed expressions inside a pipe:
 
 - Pipe expressions
 - Function

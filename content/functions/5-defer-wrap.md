@@ -6,8 +6,8 @@ metaDescription: 'Tube language defer and wrap syntax for functions'
 
 # Defer
 
-If you already know all the arguments to invoke a function, you can defer 
-its call until the pipe gets invoked. This often is useful on the first function of a pipe.
+If you already know all the arguments to invoke a function, you can defer
+its call until the pipe gets invoked. This is often useful on the first function of a pipe.
 
 To defer a function use the keyword `defer` before the function name
 

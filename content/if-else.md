@@ -8,7 +8,7 @@ metaDescription: 'This is the meta description for this page'
 
 If/Else clauses are made of a function predicate and an if/else expression. They work similar as ternary operators except else clauses are optional.
 
-To use them add an indentation level and the keyword `:` followed by a space and the function name.
+To use them, add an indentation level and the keyword `:` followed by a space and the function name.
 
 # Example If
 

@@ -16,4 +16,4 @@ Each expression has to be declared always only on a single line.
 
 ### Empty lines
 
-It´s required a minimun of one empty line between pipe expressions and invocations.
+A minimum of one empty line between pipe expressions and invocations is required.
