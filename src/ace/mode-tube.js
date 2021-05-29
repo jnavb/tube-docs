@@ -39,8 +39,8 @@ const defineTubeModeHighlightRules = () =>
               regex: /{|}|\[|\]|\(|\)/,
             },
             {
-              token: 'storage.type',
-              regex: /->/,
+              token: 'entity.name.function',
+              regex: /-> [a-zA-Z0-9.\$]*/,
             },
             {
               token: 'variable.parameter.prefixes',
@@ -53,10 +53,6 @@ const defineTubeModeHighlightRules = () =>
             {
               token: 'keyword',
               regex: /:|< | >|isnt|arent|aint|negate|U |default|none|defer |aggregate |wrap |! |\.\.\.|ary|flip/,
-            },
-            {
-              token: 'entity.name.function',
-              regex: /(?<=-> )[a-zA-Z0-9.\$]*/,
             },
             {
               token: 'string',
