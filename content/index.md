@@ -8,7 +8,7 @@ metaDescription: 'Learn and code tube!'
   <img src="https://raw.githubusercontent.com/jnavb/tube/master/assets/logo.png" alt="tube-logo" width="120px" height="120px"/>
 </p>
 
-Tube is a declarative, completely unneeded, functionalish language that compiles into Javascript.
+Tube is a declarative, completely unneeded, functionalish language that transpiles into Javascript.
 
 <Note>
  Tube is a subset of Javascript, you still need some JS code in order to work.
